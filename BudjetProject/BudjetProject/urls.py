@@ -18,6 +18,9 @@ from django.urls import path
 from django.views.generic.base import TemplateView
 
 from budjetapp import views
+from BudjetProject import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,9 +28,14 @@ urlpatterns = [
     path('login_signup/',views.login_signup,name='login_signup'),
     path('signup/',views.signup,name='signup'),
     path('experts/',views.experts,name='experts'),
+    path('user_dashboard/',views.user_dashboard,name='user_dashboard'),
 
 
 
     path('about/',views.about,name='about'),
-    path('logout/',views.logouttt,name='logout')
+    path('logout/',views.logouttt,name='logout'),
+    path('expert_consultants/',views.expert_consultants,name='expert_consultants'),
+    path('cons_expert/',views.cons_expert,name='cons_expert')
 ]
+if settings.DEBUG:
+    urlpatterns +=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

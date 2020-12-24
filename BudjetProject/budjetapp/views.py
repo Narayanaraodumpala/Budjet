@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login_signup')
 def index(request):
 
-    return render(request,'index.html')
+    return render(request,'index.html',{'experts':Expert.objects.all()})
 
 
 def login_signup(request):
@@ -60,3 +60,24 @@ def experts(request):
     return render(request,'experts.html')
 
 
+def user_dashboard(request):
+    mde= Userdetails.objects.filter(auth_user=request.user)
+    return render(request,'user_dashboard.html',{'profile':mde})
+
+
+def expert_consultants(request):
+
+    return render(request,'expert_consultants.html',{'experts':Expert.objects.all()})
+
+
+def cons_expert(request):
+    if request.method == 'POST':
+        usr = request.user
+        name = request.POST['name']
+        img = request.POST['img']
+        print(usr)
+        print(name)
+        print(img)
+        Consults.objects.create(user=usr, name=name, exp_image=img)
+
+    return render(request,'expert_consultants.html',{'msg':'Ok Your Request For Consult The Expert " '+ name + ' " is added ,We Will Notify You Once Expert Accept Your Request For Consult '})

@@ -109,25 +109,20 @@ Many people are put off by the word budget because they associate it with restri
   </h1>
    <br> <br>
               <table align="center">
+                  {% for experts in experts %}
     <tr>
     <th>
-        <img src="{% static 'exp1.jpg' %}" width="200"  style="border-radius: 6.0cm " height="200" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="{{ experts.exp_image.url }}" width="200"  style="border-radius: 6.0cm " height="200" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </th>
         <th>
-
             <table align="center">
-                <tr>
-                    <th>
-
-                        <table align="center">
                             <tr>
                                   <th>
-                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: 'French Script MT';font-size: 30px" >yes though the budget is liberal, even in fifties we used to have this and this has made us successful in life no doubt. i still remember,<br> my wife in her budgeting used to make first totalling as itharam(misc) and second total as Misc expenses and third as unexpected expenses every<br> month and i found at the end of a five year substantial in various pots in kitchen and even my wife wondered when  ..</span><br>
-                                      <h6 align="right" style="font-family: 'French Script MT';font-size: 30px;color: red" >---------Ramaswami Narayan</h6>
 
-                    </th>
-                            </tr>
-                        </table>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: 'French Script MT';font-size: 30px" >{{ experts.description }}</span><br>
+                                      <h6 align="right" style="font-family: 'French Script MT';font-size: 30px;color: red" >---------{{ experts.name }}</h6>
+
+
                     </th>
 
 
@@ -135,69 +130,10 @@ Many people are put off by the word budget because they associate it with restri
             </table>
         </th>
 
-</tr></table>
+</tr>
+              {% endfor %}</table>
   <br>
-                <table align="center">
-    <tr>
-    <th>
-       <img src="{% static 'exp2.png' %}" width="200"  style="border-radius: 6.0cm " height="200" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </th>
-        <th>
-
-            <table align="center">
-                <tr>
-                    <th>
-
-                        <table align="center">
-                            <tr>
-                                  <th>
-                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: 'French Script MT';font-size: 30px" > Well, if you ask me, the most critical part of structuring your finances and optimizing savings is just having a plan. Whether you use<br> a spreadsheet or a tool like Geltbox Money  — you have to get everything out in front of you so you can make smarter decisions. Once you do that,<br> then implementing your disciplined savings strategy becomes critical.</span><br>
-                                      <h6 align="right" style="font-family: 'French Script MT';font-size: 30px;color: red" >---------James Taylor</h6>
-
-
-                    </th>
-                            </tr>
-                        </table>
-                    </th>
-
-
-                </tr>
-            </table>
-        </th>
-
-</tr></table>
-  <br><br>
-                  <table align="center">
-    <tr>
-    <th>
-       <img src="{% static 'Screenshot (144).png' %}" width="200"  style="border-radius: 6.0cm " height="200" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </th>
-        <th>
-
-            <table align="center">
-                <tr>
-                    <th>
-
-                        <table align="center">
-                            <tr>
-                                  <th>
-                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: 'French Script MT';font-size: 30px" >I recommend trying the iSmart.Life app. They have a demo and you can understand whether it suits you or not. This is a free and very<br> convenient web app. This app has an interesting interface and services. Has a service for budget planning. You can enter monthly expenses,<br> expenses for tasks and individual expenses. Everything is very simple and convenient...</span><br>
-                                      <h6 align="right"  style="font-family: 'French Script MT';font-size: 30px;color: red" >---------GSerhii</h6>
-
-
-
-                    </th>
-                            </tr>
-                        </table>
-                    </th>
-
-
-                </tr>
-            </table>
-        </th>
-
-</tr></table>
-  <pre>
+<pre>
 
 
 
