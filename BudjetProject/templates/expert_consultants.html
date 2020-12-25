@@ -35,11 +35,15 @@
                                   <th>
 
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: 'French Script MT';font-size: 30px" >{{ experts.description }}</span><br>
-                                      <h6 align="right" style="font-family: 'French Script MT';font-size: 30px;color: red" >---------{{ experts.name }}&nbsp;&nbsp;<form action="{% url 'cons_expert' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                      <h6 align="right" style="font-size: 30px;color: red" >---------{{ experts.name }}&nbsp;&nbsp;<form action="{% url 'cons_expert' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
                                           <input type="text" name="name" value="{{ experts.name }}" hidden>
                                           <input type="text" name="img" value="{{ experts.exp_image }}" hidden>
 
-                                          <button type="submit" class="btn-outline-primary">Consult This Expert</button></form> </h6>
+                                          <button type="submit" class="btn-outline-primary">Consult This Expert</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</form> </h6>
+                                      <pre>
+
+
+                                      </pre>
 
 
                     </th>
@@ -52,8 +56,8 @@
 </tr>
               {% endfor %}</table>
 <div align="center">
-    {% if msg %}
-        <h3>{{ msg }}</h3>
+    {% if message %}
+        <h3>{{ message }}</h3>
     {%  endif %}
 </div>
 

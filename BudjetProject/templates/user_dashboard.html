@@ -34,7 +34,7 @@
 
 
                  <li class="nav-item">
-        <a class="nav-link" href="" tabindex="-1" ><span style="color: white" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultants</span></a>
+        <a class="nav-link" href="{% url 'conults' %}" tabindex="-1" ><span style="color: white"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultants</span></a>
       </li>
 
 
@@ -49,14 +49,16 @@
 
   </div>
 
+
  {% if request.user.is_authenticated %}
       <div class="cart">
-          <a href="" ><button id="cartOpen" class="btn btn-outline-warning" style="border-radius: 0.8cm " ><i class="ti-bag">My Slots</i><span class="d-xs-none"> </span></button></a>
+          <a href="{% url 'my_slots' %}" ><button id="cartOpen" class="btn btn-outline-warning" style="border-radius: 0.8cm " ><i class="ti-bag">My Slots = {{ request.user.slots_set.count }}</i><span class="d-xs-none"> </span></button></a>
       </div>
       {% endif %}
 </nav>
   </div>
 <br><br>
+  {% block  content %}
 <h3 align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profile</h3><br><br>
     {% for i in profile %}
 <table align="center">
@@ -89,6 +91,7 @@
         </th>
 </tr></table>
         {% endfor %}
+  {% endblock %}
 
 
     <!-- Optional JavaScript; choose one of the two! -->

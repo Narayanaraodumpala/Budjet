@@ -21,6 +21,15 @@ class Consults(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=50, null=True)
     exp_image = models.FileField(null=True, upload_to='experts/')
-    status=models.CharField(max_length=20,null=True,default='pending')
+    status=models.CharField(max_length=20,null=True)
+    date=models.DateField(auto_now_add=True)
+    time=models.TimeField(auto_now_add=True)
+
+
+
+class Slots(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=50, null=True)
+    status = models.CharField(max_length=20, null=True)
     date=models.DateField(auto_now_add=True)
     time=models.TimeField(auto_now_add=True)

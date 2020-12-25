@@ -29,10 +29,14 @@ urlpatterns = [
     path('signup/',views.signup,name='signup'),
     path('experts/',views.experts,name='experts'),
     path('user_dashboard/',views.user_dashboard,name='user_dashboard'),
+    path('my_slots/',views.my_slots,name='my_slots'),
+    path('book_slot/<int:pk>',views.book_slot,name='book_slot'),
 
 
 
     path('about/',views.about,name='about'),
+    path('conults/',views.conults,name='conults'),
+    path('cancel_slot/<int:pk>',views.cancel_slot,name='cancel_slot'),
     path('logout/',views.logouttt,name='logout'),
     path('expert_consultants/',views.expert_consultants,name='expert_consultants'),
     path('cons_expert/',views.cons_expert,name='cons_expert')

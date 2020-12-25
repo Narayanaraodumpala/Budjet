@@ -1,0 +1,12 @@
+{% extends 'user_dashboard.html' %}
+
+{% block content %}<br><br><br><br><br><br>
+    <div align="center">
+    My Slots<br><br><br>
+    {% for i in request.user.slots_set.all %}
+        {% if i.status == 'Accepted' %}
+        {{ i.date }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.time }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.name }}<br><br>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
