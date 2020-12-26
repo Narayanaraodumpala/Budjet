@@ -32,8 +32,8 @@ urlpatterns = [
     path('my_slots/',views.my_slots,name='my_slots'),
     path('book_slot/<int:pk>',views.book_slot,name='book_slot'),
 
-
-
+#path('graph/', views.Graph.as_view(), name='graph'),
+path('graphs/',views.graphs,name='graph'),
     path('about/',views.about,name='about'),
     path('conults/',views.conults,name='conults'),
     path('cancel_slot/<int:pk>',views.cancel_slot,name='cancel_slot'),

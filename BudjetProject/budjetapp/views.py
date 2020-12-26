@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.views.generic import TemplateView
 from .models import *
 from django.contrib.auth import authenticate,logout,login
 from .forms import *
@@ -89,16 +90,21 @@ def cancel_slot(request,pk):
     id=Consults.objects.get(id=pk)
     print('expert id =',id)
     satus= id.status
+
+
     print('Status  is =',satus)
 
     print('slot name=',id.name )
-
+    Graphs.objects.create(user=request.user, status=satus)
 
     if id.status == 'Accepted':
+
         return render(request,'error.html',{'msg':'Sorry Ur Request Is Accepted By The Expert And Unable to Cancel The  Request..With In Shortly We Will Inform  Ur Slot Day And Time'})
     else:
 
-       id.delete()
+
+
+        id.delete()
     return redirect('conults')
 
 
@@ -114,12 +120,29 @@ def book_slot(request,pk):
     name=id.name
     satus=id.status
     print('id=',id)
+    Graphs.objects.create(user=request.user,status=satus)
     if id.status=='Accepted':
         Slots.objects.create(name=name,status=satus,user=request.user)
         slots=Slots.objects.filter(user=request.user)
+
         Consults.objects.filter(id=pk).delete()
         return render(request,'my_slots.html',{'slots':slots})
     else:
         messge='Sorry Ur Request Is  not Accepted By The Expert  " '+ name +' " And Unable to Book Ur Slot At This Time ..With In Shortly We Will Inform  Ur Slot Day And Time Once The Expert Is Accepted Ur Request'
     return render(request,'error.html',{'message':messge})
 
+
+
+
+# For creating Charts (or) Graphs with Dynamic User
+
+#class Graph(TemplateView):
+ #   template_name ='graph.html'
+ #   def get_context_data(self, **kwargs,):
+ #       context=super().get_context_data(**kwargs)
+  #      context["qs"]=Graphs.objects.all()
+  #      return context
+
+def graphs(request):
+    qs = Graphs.objects.filter(user=request.user)
+    return render(request,'graph.html',{'qs':qs})
